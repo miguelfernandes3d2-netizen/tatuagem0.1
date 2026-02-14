@@ -1,0 +1,287 @@
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0f0f0f;
+  color: #ffffff;
+  padding-top: 80px; /* espaço para navbar fixa */
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #25D366;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('estudio.png') center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  top: 0;
+  left: 0;
+}
+
+.overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+/* animação leve de zoom */
+
+@keyframes zoomBanner {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+.hero {
+  animation: zoomBanner 15s ease-in-out infinite alternate;
+}
+
+/* ================= BOTÃO ================= */
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 30px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ================= SEÇÕES ================= */
+
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* ================= PERFIL ================= */
+
+.perfil img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #25D366;
+}
+
+.perfil p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* ================= GALERIA ================= */
+
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+
+
+.carousel img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  margin: 0 10px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.carousel img:hover {
+  transform: scale(1.05);
+}
+
+/* BOTÕES DO CARROSSEL */
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1c1c1c;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+  background: #25D366;
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+/* ================= FLASH ================= */
+
+.flash-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.flash-grid img {
+  width: 220px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.flash-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ================= CONTATO ================= */
+
+.contato {
+  background: #151515;
+}
+
+.contato p {
+  margin: 10px 0;
+  font-weight: 300;
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 20px;
+  }
+
+  .navbar ul {
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .carousel img {
+    width: 250px;
+    height: 350px;
+  }
+
+  .flash-grid img {
+    width: 180px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .carousel img {
+    width: 200px;
+    height: 280px;
+  }
+}
